@@ -20,9 +20,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-7A-N7d">
                                 <rect key="frame" x="16" y="36" width="343" height="156"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="156" id="ydC-P0-bg0"/>
-                                </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EA3-d3-dXi">
                                 <rect key="frame" x="16" y="212" width="41.5" height="77.5"/>

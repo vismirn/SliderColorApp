@@ -24,15 +24,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        nameInit()
     }
+
     @IBAction func redSliderAction() {
+        
     }
     @IBAction func greenSliderAction() {
+        
     }
     @IBAction func blueSliderAction() {
+        
     }
     
-
+    private func nameInit() {
+        redLabel.text = "red"
+        greenLabel.text = "green"
+        blueLabel.text = "blue"
+        countRedLabel.text = String(redSlider.value)
+        countGreenLabel.text = String(greenSlider.value)
+        countBlueLabel.text = String(blueSlider.value)
+    }
 }
 

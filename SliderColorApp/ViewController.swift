@@ -30,18 +30,21 @@ class ViewController: UIViewController {
     @IBAction func redSliderAction() {
         countRedLabel.text = String(format: "%.2f", redSlider.value)
         colorView.backgroundColor = .red.withAlphaComponent(CGFloat(redSlider.value))
+        forColorView()
     }
     @IBAction func greenSliderAction() {
         countGreenLabel.text = String(format: "%.2f", greenSlider.value)
         colorView.backgroundColor = .green.withAlphaComponent(CGFloat(greenSlider.value))
+        forColorView()
     }
     @IBAction func blueSliderAction() {
         countBlueLabel.text = String(format: "%.2f", blueSlider.value)
         colorView.backgroundColor = .blue.withAlphaComponent(CGFloat(blueSlider.value))
+        forColorView()
     }
     
     private func nameInit() {
-        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        forColorView()
         
         redLabel.text = "red"
         greenLabel.text = "green"
@@ -54,6 +57,10 @@ class ViewController: UIViewController {
         redSlider.tintColor = .red
         greenSlider.tintColor = .green
         blueSlider.tintColor = .blue
+    }
+    
+    private func forColorView() {
+        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
 }
 

@@ -38,10 +38,12 @@ class ChangeColorViewController: UIViewController {
     @IBOutlet weak var blueSlider: UISlider!
     
     weak var delegate: ChangeColorViewControllerDelegate?
+    var viewColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nameInit()
+        colorView.backgroundColor = viewColor
     }
 
     @IBAction func redSliderAction() {

@@ -5,7 +5,22 @@
 //  Created by Viktor Smirnov on 29.09.2023.
 //
 
+// +1. Определить кто будет директором, кто будет передавать ответственность. +
+// +2. Нужно создать протокол для директора.+
+// +3. Наполнить протокол правилами для взаимодействия с другим экраном. (Создать методы, и вычесляемые свойства внутри протокола)
+// +4. Создаем у директора ссылку на протокол. (Не инициализированое свойство)
+// 5. Нужно определить эвент у директора по которому мы будем заставлять работника что то сделать.
+// 6. Подписать под протокол нашего сотрудника. И реализовать методы этого протокола.
+// 7. Инициализировать свойство delegate.
+
 import UIKit
+
+protocol ChangeColorViewControllerDelegate: AnyObject {
+    func getColor(for color: UIColor)
+    
+}
+
+
 
 class ChangeColorViewController: UIViewController {
     @IBOutlet weak var colorView: UIView!
@@ -21,6 +36,8 @@ class ChangeColorViewController: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
+    
+    weak var delegate: ChangeColorViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +60,12 @@ class ChangeColorViewController: UIViewController {
         forColorView()
     }
     
+    @IBAction func doneButtonAction() {
+        let needColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        delegate?.getColor(for: needColor)
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func nameInit() {
         forColorView()
         
@@ -62,6 +85,7 @@ class ChangeColorViewController: UIViewController {
     private func forColorView() {
         colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
+    
 }
 
 
